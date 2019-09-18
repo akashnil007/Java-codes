@@ -1,0 +1,38 @@
+import java.util.*;
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+       Scanner obj=new Scanner(System.in);
+       int n,q,i,mean=0,sum=0;
+       n=obj.nextInt();
+       q=obj.nextInt();
+       int[] arr=new int[n];
+       int[] que=new int[q*2];
+       int[] ans=new int[q];
+       for(i=0;i<n;i++)
+       {
+           arr[i]=obj.nextInt();
+       }
+       for(i=0;i<q*2;i++)
+       {
+         que[i]=obj.nextInt();
+       }
+       for(i=0;i<q*2;i++)
+       {
+           if(i%2==0)
+           {
+               mean=0;
+               sum=0;
+               sum+=que[i];
+              
+           }
+           else 
+           {
+               sum+=que[i];
+               mean=sum/2;
+               ans[i/2]=mean;
+           }
+       }
+       for(i=0;i<q;i++)
+       System.out.println(ans[i]);
+    }
+}
