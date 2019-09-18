@@ -1,0 +1,66 @@
+/* IMPORTANT: Multiple classes and nested static classes are supported */
+ 
+///*
+// * uncomment this if you want to read input.
+//imports for BufferedReader
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+ 
+//import for Scanner and other utility classes
+import java.util.*;
+//*/
+ 
+// Warning: Printing unwanted or ill-formatted data to output will cause the test cases to fail
+ 
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        /* Sample code to perform I/O:
+         * Use either of these methods for input
+ 
+        //BufferedReader
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String name = br.readLine();                // Reading input from STDIN
+        System.out.println("Hi, " + name + ".");    // Writing output to STDOUT
+         */
+        // Write your code here
+        //Scanner
+        Scanner s = new Scanner(System.in);
+        int n=s.nextInt();
+        s.nextLine(); 
+        String m = s.nextLine();                
+        String h="hackerearth";
+        int hash1[]=new int[26];
+        int hash2[]=new int[26];
+        for(int i=0;i<h.length();i++)
+        {
+            hash1[h.charAt(i)-'a']++; 
+        }
+        for(int i=0;i<n;i++)
+        {
+            hash2[m.charAt(i)-'a']++;
+            //System.out.println(hash1[i]);
+        }
+        int count=0;
+        int count1=0;
+        boolean flag=true;
+        while(flag){
+            for(int i=0;i<26;i++){
+                if(hash2[i]-hash1[i]>=0 && hash1[i]>0)
+                {   
+                    hash2[i]-=hash1[i];
+                    count++;
+                }
+            }
+            if(count==7)
+            {
+                count1++;
+                count=0;
+                flag=true;
+            }
+            else{
+                flag=false;
+            }
+        }
+        System.out.println(count1);
+    }
+}
